@@ -19,4 +19,27 @@ RSpec.describe Ride do
     end
   end
 
+  describe '#board_rider' do
+    it 'can add a visitor to the rider_log in the form of a hash' do
+      expect(ride1.rider_log).to eq({})
+
+      ride1.board_rider(visitor1)
+      ride1.board_rider(visitor2)
+
+      expect(ride1.rider_log).to eq({vistor1, visitor2})
+    end
+
+    it 'can include the rider preference when added' do
+      expect(ride1.rider_log).to eq({})
+
+      visitor1.add_preference(:gentle)
+      visitor2.add_preference(:gentle)
+
+      ride1.board_rider(visitor1)
+      ride1.board_rider(visitor2)
+
+      expect(ride1.rider_log).to eq({vistor1, visitor2})
+    end
+  end
+
 end

@@ -16,7 +16,7 @@ RSpec.describe Visitor do
   end
 
   describe '#add_preference' do
-    it 'can add symbols to the preferences array' do
+    it 'can add symbols to the preferences array of a visitor' do
       visitor1.add_preference(:gentle)
       visitor1.add_preference(:water)
 
